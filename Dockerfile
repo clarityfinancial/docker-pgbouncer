@@ -28,7 +28,7 @@ RUN \
   # Cleanup
   cd /tmp && \
   rm -rf /tmp/pgbouncer*  && \
-  apk del --purge autoconf autoconf-doc automake udns-dev curl gcc libc-dev libevent-dev libtool make libressl-dev pkgconfig
+  apk del --purge autoconf autoconf-doc automake udns-dev curl gcc libc-dev libevent-dev libtool make libressl-dev pkgconfig openssh-server
 
 COPY entrypoint.sh /entrypoint.sh
 USER postgres
