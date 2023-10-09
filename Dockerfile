@@ -7,7 +7,7 @@ RUN \
   # security
   apk add -U --no-cache --upgrade busybox && \
   # Download
-  apk add -U --no-cache autoconf autoconf-doc automake udns udns-dev curl gcc libc-dev libevent libevent-dev libtool make openssl-dev openssh pkgconfig postgresql-client && \
+  apk add -U --no-cache autoconf autoconf-doc automake udns udns-dev curl gcc libc-dev libevent libevent-dev libtool make openssl-dev pkgconfig postgresql-client && \
   curl -o  /tmp/pgbouncer-$VERSION.tar.gz -L https://pgbouncer.github.io/downloads/files/$VERSION/pgbouncer-$VERSION.tar.gz && \
   cd /tmp && \
   # Unpack, compile
@@ -28,7 +28,7 @@ RUN \
   # Cleanup
   cd /tmp && \
   rm -rf /tmp/pgbouncer*  && \
-  apk del --purge autoconf autoconf-doc automake udns-dev curl gcc libc-dev libevent-dev libtool make libressl-dev pkgconfig openssh
+  apk del --purge autoconf autoconf-doc automake udns-dev curl gcc libc-dev libevent-dev libtool make libressl-dev pkgconfig
 
 COPY entrypoint.sh /entrypoint.sh
 USER postgres
